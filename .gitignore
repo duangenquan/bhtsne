@@ -1,6 +1,7 @@
 .idea
 *.ipynb
 *.py[oc]
+*.py~
 
 # ignore the C++ binary
 bh_tsne
