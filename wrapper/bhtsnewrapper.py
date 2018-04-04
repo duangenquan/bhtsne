@@ -1,31 +1,25 @@
 from common import *
 from libpytsne import TSNEWrapper
-
-# Disable
-def blockPrint():
-    sys.stdout = open(os.devnull, 'w')
-
-# Restore
-def enablePrint():
-    sys.stdout = sys.__stdout__
     
 def read_unpack(fmt, fh):
     return unpack(fmt, fh.read(calcsize(fmt)))    
 
 def bh_tsne(workdir, verbose=False):
     tsnewrapper = TSNEWrapper()
+    temp = sys.stdout
 
     if not verbose:
-        blockPrint()
+        sys.stdout = open(os.devnull, 'wb')
+        
 
     # Call bh_tsne and let it do its thing
     inputfile = path_join(workdir, 'data.dat')
     outputfile = path_join(workdir, 'result.dat')
     
-    tsnewrapper.Process(inputfile, outputfile)
+    tsnewrapper.Process(inputfile, outputfile, verbose)
 
     if not verbose:
-        enablePrint()
+        sys.stdout = temp
 
     # Read and pass on the results
     with open(outputfile, 'rb') as output_file:

@@ -15,15 +15,20 @@ namespace bp = boost::python;
 
 #define DEBUG
 
+
 class TSNEWrapper
 {
 public:
-	int Process(char* datapath, char* outputpath)
+	int Process(char* datapath, char* outputpath, int verbose)
 	{
 #ifdef DEBUG
 		printf("filepath = %s\n", datapath);
 #endif
-		
+		auto temp = stdout;
+		if(!verbose){
+			freopen("/dev/null","w",stdout);
+		}
+			
 		// Function that runs the Barnes-Hut implementation of t-SNE
 		
 		// Define some variables
@@ -58,7 +63,9 @@ public:
 		    free(landmarks); landmarks = NULL;
         }
         delete(tsne);
-		
+	
+		stdout = temp;
+
 		return 0;
 	}
 
