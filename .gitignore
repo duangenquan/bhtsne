@@ -2,6 +2,8 @@
 *.ipynb
 *.py[oc]
 *.py~
+*.o
+*.cpp~
 
 # ignore the C++ binary
 bh_tsne
@@ -9,3 +11,5 @@ bh_tsne
 # ignore data files
 *.txt
 *.tsv
+
+Makefile~

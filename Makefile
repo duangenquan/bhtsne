@@ -1,26 +1,42 @@
-CXX = cl.exe
-CFLAGS = /nologo /O2 /EHsc /D "_CRT_SECURE_NO_DEPRECATE" /D "USEOMP" /openmp
+CC = gcc
+CPP = g++
 
-TARGET = windows
+IDIRS = -I.
+DEFINES = -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -DPIC -DZLIB_CONST -D_GNU_SOURCE=1 -D_REENTRANT -D__STDC_CONSTANT_MACROS
+CFLAGS = -fomit-frame-pointer -fPIC -pthread -Wall -Wextra -DNDEBUG -O2 -g -rdynamic -fopenmp $(IDIRS) $(DEFINES)
 
-all: $(TARGET) $(TARGET)\bh_tsne.exe
+LIBRARIES = -L/usr/lib
 
-$(TARGET)\bh_tsne.exe: tsne_main.obj tsne.obj sptree.obj
-	$(CXX) $(CFLAGS) tsne_main.obj tsne.obj sptree.obj -Fe$(TARGET)\bh_tsne.exe
+CPPFLAGS = -std=c++11 $(CFLAGS)
 
-sptree.obj: sptree.cpp sptree.h
-	$(CXX) $(CFLAGS) -c sptree.cpp
+LFLAGS = -lm -lstdc++ -llzma -lz -ldl -lpthread -lgomp
 
-tsne.obj: tsne.cpp tsne.h sptree.h vptree.h
-	$(CXX) $(CFLAGS) -c tsne.cpp
+LDFLAGS = $(LIBRARIES) $(LFLAGS)
 
-tsne_main.obj: tsne_main.cpp tsne.h sptree.h vptree.h
-	$(CXX) $(CFLAGS) -c tsne_main.cpp
+core = ./src/core
+main = ./src/main
 
-.PHONY: $(TARGET)
-$(TARGET):
-	-mkdir $(TARGET)
+SOURCES = $(wildcard $(core)/*.cpp) $(wildcard $(main)/*.cpp)
+
+EXECUTABLE = ./bh_tsne
+
+OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES))
+
+all: $(SOURCES) $(EXECUTABLE)
+
+%.o : %.c
+	@echo Compiling: $< 
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+%.o : %.cpp
+	@echo Compiling: $< 
+	@$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	-erase /Q *.obj *.exe $(TARGET)\. 
-	-rd $(TARGET)
+	rm -f $(OBJECTS)
+	rm -f $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	@echo Linking: $@
+	@$(CPP) $(OBJECTS) $(LDFLAGS) -o $@
+
