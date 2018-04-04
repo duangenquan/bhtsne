@@ -1,14 +1,53 @@
 This is forked from https://github.com/lvdmaaten/bhtsne, and the main updates are:
-+ Add an example calling wrapper directly, instead of using pipe
-+ Tune file strucures
-+ Focus on fast and stable results on linux and mac
-+ Add makefile for compling binaries and python wrappers
+
++ Easy compile and visualize results on linux/osx
 
 # Preparation
+Install boost
+
+ubuntu
 ```
 sudo apt-get install libboost-all-dev
-pip install boost
 ```
+mac
+```
+brew install boost --with-python
+brew install boost-python
+```
+
+# Usage
+## Demo tsne
+```
+python demo_tsne.py
+```
+This is an earlier version of tsne, and the sample results are [here](https://github.com/duangenquan/bhtsne/blob/master/results/tsne_demo.png).
+
+## Demo bhtsne
+```
+cp Makefile_bin Makefile
+make
+python demo_bhtsne.py
+```
+This is same usage as the original [code](https://github.com/lvdmaaten/bhtsne).
+My update is to use 'make' instead of using 'g++ sptree.cpp tsne.cpp tsne_main.cpp -o bh_tsne -O2'.
+Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_demo.png).
+
+## Demo bhtsne_wrapper
+```
+cp Makefile_py_linux Makefile // for linux
+cp Makefile_py_osx Makefile // for osx
+make
+python demo_bhtsne_wrapper.py
+```
+The default Makefile is for osx.
+Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_wrapper_demo.png).
+![](/results/bhtsne_wrapper_demo.png)
+
+# Contact
+Please contact duangenquan@gmail.com for any questions or suggestions.
+
+
+===================================================================
 
 [![Build Status](https://travis-ci.org/lvdmaaten/bhtsne.svg)](https://travis-ci.org/lvdmaaten/bhtsne)
 
