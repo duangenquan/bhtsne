@@ -1,15 +1,16 @@
 This is forked from https://github.com/lvdmaaten/bhtsne, and the main updates are:
 
-+ Easy compile and visualize results on linux/osx
++ Easy compile and visualize results on Linux/OSX
 
 # Preparation
 Install boost
 
-ubuntu
+Linux
 ```
 sudo apt-get install libboost-all-dev
 ```
-mac
+
+OSX
 ```
 brew install boost --with-python
 brew install boost-python
