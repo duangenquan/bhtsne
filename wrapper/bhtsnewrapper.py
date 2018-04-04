@@ -66,7 +66,7 @@ def run_bh_tsne(data, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=
 
     # bh_tsne works with fixed input and output paths, give it a temporary
     #   directory to work in so we don't clutter the filesystem
-    tmp_dir_path = "./tmp" # mkdtemp()
+    tmp_dir_path = mkdtemp()
     
     print("Initializing...")
     init_bh_tsne(data, tmp_dir_path, no_dims=no_dims, perplexity=perplexity, theta=theta, randseed=randseed,verbose=verbose, initial_dims=initial_dims, use_pca=use_pca, max_iter=max_iter)
@@ -84,7 +84,7 @@ def run_bh_tsne(data, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=
 
 
 def main(args):
-    parser = _argparse()
+    parser = argparse()
 
     if len(args) <= 1:
         print(parser.print_help())

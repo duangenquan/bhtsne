@@ -63,7 +63,7 @@ DEFAULT_MAX_ITERATIONS = 1000
 
 ###
 
-def _argparse():
+def argparse():
     argparse = ArgumentParser('bh_tsne Python wrapper')
     argparse.add_argument('-d', '--no_dims', type=int,
                           default=DEFAULT_NO_DIMS)
