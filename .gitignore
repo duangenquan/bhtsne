@@ -4,6 +4,8 @@
 *.py~
 *.o
 *.cpp~
+*.h~
+*.md~
 
 # ignore the C++ binary
 bh_tsne
