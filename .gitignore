@@ -6,6 +6,7 @@
 *.cpp~
 *.h~
 *.md~
+*.so
 
 # ignore the C++ binary
 bh_tsne

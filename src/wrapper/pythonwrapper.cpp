@@ -66,6 +66,7 @@ public:
 
 BOOST_PYTHON_MODULE(libpytsne)
 {
+	using namespace boost::python;
 	bp::class_<TSNEWrapper>("TSNEWrapper")
 		.def("Process", &TSNEWrapper::Process);
 }
