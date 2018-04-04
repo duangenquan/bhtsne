@@ -662,11 +662,11 @@ double TSNE::randn() {
 
 // Function that loads data from a t-SNE file
 // Note: this function does a malloc that should be freed elsewhere
-bool TSNE::load_data(double** data, int* n, int* d, int* no_dims, double* theta, double* perplexity, int* rand_seed, int* max_iter) {
+bool TSNE::load_data(double** data, int* n, int* d, int* no_dims, double* theta, double* perplexity, int* rand_seed, int* max_iter, const char* filename) {
 
 	// Open file, read first 2 integers, allocate memory, and read the data
     FILE *h;
-	if((h = fopen("data.dat", "r+b")) == NULL) {
+	if((h = fopen(filename, "r+b")) == NULL) {
 		printf("Error: could not open data file.\n");
 		return false;
 	}
@@ -686,11 +686,11 @@ bool TSNE::load_data(double** data, int* n, int* d, int* no_dims, double* theta,
 }
 
 // Function that saves map to a t-SNE file
-void TSNE::save_data(double* data, int* landmarks, double* costs, int n, int d) {
+void TSNE::save_data(double* data, int* landmarks, double* costs, int n, int d, const char* filename) {
 
 	// Open file, write first 2 integers and then the data
 	FILE *h;
-	if((h = fopen("result.dat", "w+b")) == NULL) {
+	if((h = fopen(filename, "w+b")) == NULL) {
 		printf("Error: could not open data file.\n");
 		return;
 	}

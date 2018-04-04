@@ -1,3 +1,14 @@
+This is forked from https://github.com/lvdmaaten/bhtsne, and the main updates are:
++ Add an example calling wrapper directly, instead of using pipe
++ Tune file strucures
++ Focus on fast and stable results on linux and mac
++ Add makefile for compling binaries and python wrappers
+
+# Preparation
+```
+sudo apt-get install libboost-all-dev
+pip install boost
+```
 
 [![Build Status](https://travis-ci.org/lvdmaaten/bhtsne.svg)](https://travis-ci.org/lvdmaaten/bhtsne)
 
