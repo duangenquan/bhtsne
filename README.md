@@ -1,5 +1,5 @@
 This is forked from https://github.com/lvdmaaten/bhtsne, to visulize high demensional features.
-The main update is to **easy compile and visualize results on Linux/OSX**.
+The main update is to **easy compile and visualize results on Linux/OSX with python2.7**.
 
 # Preparation
 Install boost
