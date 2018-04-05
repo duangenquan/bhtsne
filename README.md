@@ -20,6 +20,19 @@ pip install matplotlib
 pip3 install matplotlib
 ```
 # Usage
+## Demo bhtsne_wrapper
+```
+cp Makefile_py_linux Makefile // for linux python2.7
+cp Makefile_py_linux35 Makefile // for linux python3.5
+cp Makefile_py_osx Makefile // for osx python2.7
+make
+python demo_bhtsne_wrapper.py
+```
+Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_wrapper_demo.png).
+
+![](/results/bhtsne_wrapper_demo.png)
+
+
 ## Demo tsne
 ```
 python demo_tsne.py
@@ -35,18 +48,6 @@ python demo_bhtsne.py
 This is same usage as the original [code](https://github.com/lvdmaaten/bhtsne).
 My update is to use 'make' instead of using 'g++ sptree.cpp tsne.cpp tsne_main.cpp -o bh_tsne -O2'.
 Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_demo.png).
-
-## Demo bhtsne_wrapper
-```
-cp Makefile_py_linux Makefile // for linux python2.7
-cp Makefile_py_linux35 Makefile // for linux python3.5
-cp Makefile_py_osx Makefile // for osx python2.7
-make
-python demo_bhtsne_wrapper.py
-```
-Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_wrapper_demo.png).
-
-![](/results/bhtsne_wrapper_demo.png)
 
 # Contact
 Please contact duangenquan@gmail.com for any questions or suggestions.
