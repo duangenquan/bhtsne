@@ -26,7 +26,8 @@ cp Makefile_py_linux Makefile // for linux python2.7
 cp Makefile_py_linux35 Makefile // for linux python3.5
 cp Makefile_py_osx Makefile // for osx python2.7
 make
-python demo_bhtsne_wrapper.py
+python demo_bhtsne_wrapper.py // for python2.7
+python3 demo_bhtsne_wrapper.py // for python3.5
 ```
 Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_wrapper_demo.png).
 
