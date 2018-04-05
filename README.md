@@ -1,6 +1,5 @@
-This is forked from https://github.com/lvdmaaten/bhtsne, and the main updates are:
-
-+ Easy compile and visualize results on Linux/OSX
+This is forked from https://github.com/lvdmaaten/bhtsne, to visulize high demensional features.
+The main update is to **easy compile and visualize results on Linux/OSX**.
 
 # Preparation
 Install boost
