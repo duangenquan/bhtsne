@@ -185,7 +185,7 @@ if __name__ == "__main__":
     print("Running example on 2,500 MNIST digits...")
     X = np.loadtxt("./data/mnist2500_X.txt")
     labels = np.loadtxt("./data/mnist2500_labels.txt")
-    figfile = './data/tsne_demo.png'
+    figfile = './results/tsne_demo.png'
     
     Y = tsne(X, 2, 50, 20.0)
     start = datetime.now()
