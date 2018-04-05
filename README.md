@@ -1,5 +1,5 @@
 This is forked from https://github.com/lvdmaaten/bhtsne, to visulize high demensional features.
-The main update is to **easy compile and visualize results on Linux/OSX with python2.7**.
+The main update is to **easy compile and visualize results on Linux/OSX**.
 
 # Preparation
 Install boost
@@ -14,7 +14,11 @@ OSX
 brew install boost --with-python
 brew install boost-python
 ```
-
+Others
+```
+pip install matplotlib
+pip3 install matplotlib
+```
 # Usage
 ## Demo tsne
 ```
@@ -34,13 +38,14 @@ Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/resu
 
 ## Demo bhtsne_wrapper
 ```
-cp Makefile_py_linux Makefile // for linux
-cp Makefile_py_osx Makefile // for osx
+cp Makefile_py_linux Makefile // for linux python2.7
+cp Makefile_py_linux35 Makefile // for linux python3.5
+cp Makefile_py_osx Makefile // for osx python2.7
 make
 python demo_bhtsne_wrapper.py
 ```
-The default Makefile is for osx.
 Here is a sample [result](https://github.com/duangenquan/bhtsne/blob/master/results/bhtsne_wrapper_demo.png).
+
 ![](/results/bhtsne_wrapper_demo.png)
 
 # Contact
